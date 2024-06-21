@@ -15,7 +15,7 @@ export default function Evolucoes(){
         .then((data) => {
             setImg(data.sprites.front_default)
         })
-    }, [])
+    }, [evolucao])
     
     return (
         <CardSection title={evolucao!}>
