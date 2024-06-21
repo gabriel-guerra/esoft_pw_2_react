@@ -1,6 +1,6 @@
 'use client'
 import { useSearchParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import CardSection from "@/app/components/CardSection/CardSection";
 
 export default function Evolucoes(){
@@ -18,9 +18,11 @@ export default function Evolucoes(){
     }, [evolucao])
     
     return (
-        <CardSection title={evolucao!}>
-            <img src={img} style={{width: "300px"}}></img>
-        </CardSection>
+        <Suspense>
+            <CardSection title={evolucao!}>
+                <img src={img} style={{width: "300px"}}></img>
+            </CardSection>
+        </Suspense>
     )
 
 }
