@@ -3,7 +3,7 @@ import { useSearchParams } from 'next/navigation';
 import { useState, useEffect, Suspense } from 'react';
 import CardSection from "@/app/components/CardSection/CardSection";
 
-export default function Evolucoes(){
+function EvolucoesComponent(){
     
     const searchParams = useSearchParams();
     const evolucao = searchParams.get('evolucao');
@@ -18,11 +18,17 @@ export default function Evolucoes(){
     }, [evolucao])
     
     return (
-        <Suspense>
-            <CardSection title={evolucao!}>
-                <img src={img} style={{width: "300px"}}></img>
-            </CardSection>
-        </Suspense>
+        <CardSection title={evolucao!}>
+            <img src={img} style={{width: "300px"}}></img>
+        </CardSection>
     )
 
+}
+
+export default function Evolucoes() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <EvolucoesComponent />
+        </Suspense>
+    );
 }
