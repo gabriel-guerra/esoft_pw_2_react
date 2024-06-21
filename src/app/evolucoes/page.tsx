@@ -18,7 +18,7 @@ export default function Evolucoes(){
     }, [])
     
     return (
-        <CardSection titulo={evolucao}>
+        <CardSection title={evolucao!}>
             <img src={img} style={{width: "300px"}}></img>
         </CardSection>
     )
